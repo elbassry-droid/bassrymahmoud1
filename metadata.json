@@ -1,0 +1,10 @@
+{
+  "name": "Remix Remix Remix Remix نظام كاشير وإدارة المتاجر والمخازن المتكامل",
+  "description": "نظام شامل للمحلات والسوبرماركت: مبيعات ونقاط بيع، مخازن، باركود، موردين ومصروفات، تقسيط وديليفري، وحساب نهاية اليوم.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

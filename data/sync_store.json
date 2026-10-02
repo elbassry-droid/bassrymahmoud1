@@ -1,0 +1,35 @@
+{
+  "PHARM-TEST": {
+    "roomCode": "PHARM-TEST",
+    "createdAt": "2026-10-02T22:00:53.556Z",
+    "lastUpdated": "2026-10-02T22:00:53.578Z",
+    "version": 2,
+    "devices": [
+      {
+        "id": "dev-1",
+        "name": "كاشير 1",
+        "lastSeen": "2026-10-02T22:00:53.556Z"
+      }
+    ],
+    "deltas": [
+      {
+        "id": "delta-1790978453578-imbc",
+        "type": "invoice",
+        "action": "create",
+        "deviceId": "dev-1",
+        "deviceName": "كاشير",
+        "timestamp": "2026-10-02T22:00:53.578Z",
+        "data": {
+          "id": "inv-123",
+          "invoiceNumber": "INV-001",
+          "total": 150
+        }
+      }
+    ],
+    "stats": {
+      "totalBytesTransferred": 154,
+      "pushesCount": 1,
+      "pullsCount": 0
+    }
+  }
+}

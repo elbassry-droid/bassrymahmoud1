@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    border-color: var(--color-slate-200);
+  }
+  body {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Thermal POS Receipt Print Styles - Engineered for 100% compatibility with all thermal printers */
+@media print {
+  @page {
+    margin: 0;
+    size: auto;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 1. Hide the entire application UI and all on-screen modals during print */
+  #root,
+  .no-print {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* 2. Show the dedicated print receipt container attached directly to document.body via Portal */
+  #receipt-print-area {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  #receipt-print-area * {
+    visibility: visible !important;
+    color: #000000 !important;
+  }
+
+  /* Specific exact widths by thermal paper standard */
+  #receipt-print-area.paper-80mm {
+    width: 72mm !important;
+    max-width: 72mm !important;
+    padding: 1.5mm 2mm !important;
+  }
+
+  #receipt-print-area.paper-58mm {
+    width: 48mm !important;
+    max-width: 48mm !important;
+    padding: 0.5mm 1mm !important;
+  }
+
+  #receipt-print-area.paper-auto {
+    width: 100% !important;
+    max-width: 72mm !important;
+    padding: 1mm !important;
+  }
+
+  /* 3. Barcode Labels Sheet / Roll Printing */
+  #barcode-labels-print-area {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-sizing: border-box !important;
+  }
+
+  #barcode-labels-print-area * {
+    visibility: visible !important;
+  }
+
+  /* Roll mode: for thermal label printers (Xprinter, Zebra, etc.) */
+  #barcode-labels-print-area.print-mode-roll .barcode-label-card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    margin: 0 auto 2mm auto !important;
+  }
+
+  /* Sheet mode: for A4 sticker sheets */
+  #barcode-labels-print-area.print-mode-sheet {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Hide the portal print areas on normal screens so only the interactive modal preview is seen */
+@media screen {
+  #receipt-print-area,
+  #barcode-labels-print-area {
+    display: none !important;
+  }
+}
